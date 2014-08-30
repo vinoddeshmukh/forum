@@ -1,0 +1,13 @@
+package com.forum.utils;
+
+
+
+public class ConnectionUtil {
+
+	/*public static Session getSession() {
+
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+
+		return session;
+	}*/
+}
