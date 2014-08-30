@@ -1,0 +1,36 @@
+<script><!--
+$(document).ready(function() {
+    setTimeout(function(){ 
+ 		  $('#newsList-Table').dataTable( {
+ 			 "iDisplayLength": 15,
+ 	 		   "bSort": false,
+ 	 		   "bFilter": false,"bLengthChange": false
+ 		  } );
+    },0)
+} );
+--></script>
+<script type="text/html" id='newsList-template'>
+		<table cellpadding="0" cellspacing="0" border="0" class="display" id="newsList-Table" >
+        <thead>
+            <tr>
+				<th width = "10px">#</th>
+                <th width = "80%">Title</th>
+				<th width = "10%">Dated</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%
+                _.each(modelData.dataList,function(item){
+            %>
+                <tr>
+                    <!-- use variables -->
+					<td align="center" width = "10px"><%= item.frmId %></td>
+                    <td width = "10px"><span id="tdspan"><a href="#" onclick="loadModuleDetails(this,'newsDetails');" title="<%= item.newsTitle %>" rel="<%= item.frmId %>"><%= item.newsTitle %></a></span></td>
+					<td width = "10px"><%= item.newsDtStr %></td>
+                </tr>
+            <%
+                });
+            %>
+        </tbody>
+    </table>
+</script>

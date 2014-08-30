@@ -1,0 +1,71 @@
+<script type="text/html" id='login-template'>
+ <div id = "centerPanelTakeover" class="ui-widget-content">
+		<div class="close_box">Close this box</div>
+		<div class="takeoverContents">
+		<div id="login" class="login">
+
+		<h2><span class="fontawesome-lock"></span>Sign In</h2>
+
+		<form id="loginForm" action="javascript:verifyLogin('loginAction','loginForm');" method="POST">
+
+			<fieldset>
+				<ul id="loginPanel">
+					<li>
+						<td><p><label for="email">E-mail address</label></p></td>
+					</li>
+					<li>
+						<td><p><input type="email" name="email" id="email" value="pankaj@test.com" onBlur="if(this.value=='')this.value='mail@address.com'" onFocus="if(this.value=='mail@address.com')this.value=''"></p> <!-- JS because of IE support; better: placeholder="mail@address.com" --></td>
+					</li>
+					<li>
+						<td><p><label for="password">Password</label></p></td>
+					</li>
+					<li>
+						<td><p><input type="password" name="password" id="password" value="12345" onBlur="if(this.value=='')this.value='password'" onFocus="if(this.value=='password')this.value=''"></p> <!-- JS because of IE support; better: placeholder="password" --></td>
+					</li>
+					<li>
+						<td><p><input type="submit" value="Sign In"></p></td>
+					</li>
+				</ul>
+
+				<ul id="loginRegistrationPanel">
+					<li>
+						<td><h3>If you are not regestered to this site, Please registerred by clicking below "Register" button</h3></td>
+					</li>
+					<li>
+						<td><input type="submit" value="Register"></td>
+					</li>
+				</ul>
+				<h3>Password length and formation</h3>
+				<p>Many policies require a minimum password length (eight characters is typical but may not be appropriate). Some systems impose a maximum length for compatibility with legacy systems.
+				Some policies suggest or impose requirements on what type of password a user can choose, such as:</p>
+				<ul id="listArrow">
+					<li>The use of both upper- and lower-case letters (<a href="/wiki/Case_sensitivity" title="Case sensitivity">case sensitivity</a>)</li>
+					<li>Inclusion of one or more numerical digits</li>
+					<li>Inclusion of special characters, e.g. @, #, $ etc.</li>
+					<li>Prohibition of words found in a dictionary or the user's personal information</li>
+					<li>Prohibition of passwords that match the format of calendar dates, <a href="/wiki/License_plate" title="License plate" class="mw-redirect">license plate</a> numbers, telephone numbers, or other common numbers</li>
+					<li>Prohibition of use of company name or an abbreviation</li>
+					<li>An Environ password, of the following form: consonant, vowel, consonant, consonant, vowel, consonant, number, number (for example <i>pinray45</i>). A disadvantage of this 8-character password is known to potential attackers, the number of possibilities that need to be tested is fewer than a 6-character password of no form (486,202,500 vs 2,176,782,336).<sup id="cite_ref-5" class="reference"><a href="#cite_note-5"><span>[</span>5<span>]</span></a></sup></li>
+				</ul>
+				<p>Other systems create the password for the users or let the user select one of a limited number of displayed choices.</p>
+				
+				<h3>Common password practice</h3>
+				<p>Password policies often include advice on proper password management such as:</p>
+				<ul id="listDot">
+					<li>Never share a computer account</li>
+					<li>Never use the same password for more than one account</li>
+					<li>Never tell a password to anyone, including people who claim to be from customer service or security</li>
+					<li>Never write down a password</li>
+					<li>Never communicate a password by telephone, e-mail or instant messaging</li>
+					<li>Being careful to log off before leaving a computer unattended</li>
+					<li>Changing passwords whenever there is suspicion they may have been compromised</li>
+					<li>Operating system password and application passwords are different</li>
+					<li>Password should be alpha-numeric</li>
+				</ul>
+
+			</fieldset>
+		</form>
+		</div>
+		</div>
+		</div>
+</script>

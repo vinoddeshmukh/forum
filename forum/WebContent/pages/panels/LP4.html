@@ -1,0 +1,31 @@
+<script type="text/html" id='LP4-template'>
+		<div class="close_box">X</div>
+    	<h3 class="ui-widget-header"><%= modelData.header %></h3>
+		<table cellspacing='0' width='100%' cellpadding='0' >
+        <thead>
+            <tr>
+				<th width = "10px">#</th>
+                <th width = "60%">Name</th>
+				<th width = "30%">Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%
+                _.each(modelData.dataList,function(item){
+            %>
+                <tr>
+                    <!-- use variables -->
+					<td align="center" width = "10px"><%= item.sno %></td>
+                    <td width = "10px"><span id="tdspan"><a class="example-image-link" data-lightbox="example-1" href="pages/panels/LP1.html" title="<%= item.displayName %> [<%= item.cetogery %>]"><%= item.displayName %> [<%= item.cetogery %>]</a></span></td>
+					<td width = "10px"><%= item.role %></td>
+                </tr>
+            <%
+                });
+            %>
+				<tr>
+                    <!-- use variables -->
+					<td align="right" colspan="3"><div id="tabMore"><a>more..</a></div></td>
+                </tr>
+        </tbody>
+    </table>
+</script>

@@ -1,0 +1,34 @@
+<script>
+$(document).ready(function() {
+    setTimeout(function(){ 
+ 		  $('#example').dataTable( {
+ 		    "iDisplayLength": 15
+ 		  } );
+    },500)
+} );
+</script>
+<script type="text/html" id='usersListADMIN-template'>
+		<table cellpadding="0" cellspacing="0" border="0" class="display" id="example" >
+        <thead>
+            <tr>
+				<th width = "10px">#</th>
+                <th width = "60%">Name</th>
+				<th width = "30%">Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%
+                _.each(modelData.dataList,function(item){
+            %>
+                <tr>
+                    <!-- use variables -->
+					<td align="center" width = "10px"><%= item.userId %></td>
+                    <td width = "10px"><span id="tdspan"><a class='inline' rel="<%= item.userId %>" href="#" onClick="loadModuleFromBox(this,'consultantDetail')" title="<%= item.firstNm %> "><%= item.firstNm  %> <%= item.lastNm  %> [<%= item.prefferedCat %>]</a></span></td>
+					<td width = "10px"><%= item.designation %></td>
+                </tr>
+            <%
+                });
+            %>
+        </tbody>
+    </table>
+</script>

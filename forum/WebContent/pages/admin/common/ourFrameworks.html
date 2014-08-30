@@ -1,0 +1,18 @@
+<script>
+$(document).ready(function() {
+    setTimeout(function(){
+    	$('#OFWSuppressScrollX').perfectScrollbar({suppressScrollX: true});
+    },200)
+} );
+</script>  
+<script type="text/html" id='OFWADMIN-template'>
+		<div class="close_box">X</div>
+		<h3 class="ui-widget-header"><%= modelData.header %></h3>
+		<div id="OFWSuppressScrollX" class="contentHolder180">
+			<div class="content">
+				<%$.each(modelData.dataList,function(i,item){%>
+					<div class="row" id="OFWdiv<%=i%>">&#10149;  <a rel="" title="<%= item.title %>" id="OFWanchor<%=i%>" onclick="loadServiceDetails(this,'OFWspan'+<%=i%>)"><strong><%= item.title %></a> : </strong><span id="OFWspan<%=i%>"><%= item.description %></span></div>
+				<%});%>
+			</div>
+		</div>
+</script>

@@ -1,0 +1,46 @@
+<script>
+$(document).ready(function() {
+    setTimeout(function(){
+        $( "#recent_tabs" ).tabs({
+        	beforeLoad: function( event, ui ) {
+        		ui.jqXHR.error(function() {
+        		ui.panel.html("Couldn't load this tab. We'll try to fix this as soon as possible. " +
+        						"If this wouldn't be a demo." );
+        		});
+        	}
+        });
+    },200)
+} );
+</script>
+
+<script type="text/html" id='RP2-template'>
+<div id="recent_tabs">
+	<ul>
+		<li><a href="#tabs-1"><%= modelData.header %></a></li>
+		<li><a href="ajax/content1.html">Most Reviewed Post</a></li>
+	</ul>
+	<div id="tabs-1">
+		<div id="listContainer">
+		<%
+                _.each([0,1, 2, 3,4,5,6,7,8,9],function(item){
+				if(this[item] !== undefined){
+            %>
+				<div class="row">&#10149;  <a class="example-image-link" data-lightbox="example-1" href="pages/panels/LP1.html" title="<%= item.displayName %> [<%= item.cetogery %>]"><%= item.displayName %> [<%= item.cetogery %>]</a></div>
+			<%
+               }
+                },modelData.dataList);
+            %>
+</div>
+			<%
+                _.each([10],function(item){
+				if(this[item] !== undefined){
+            %>
+					<div id="tabMore"><a class='inline' href="newsList" >more..</a></div>
+			<%
+				}
+                },modelData.dataList);
+            %>
+	</div>
+	</div>
+</div>
+</script>

@@ -1,0 +1,22 @@
+<script type="text/html" id='messageDetailsView-template'>
+	<div class="ui-widget-content">
+	<div id="successPanel" class="successHeader"></div>
+	<input type="hidden" name="msgId" id="msgId" value="<%= modelData.postId %>"/>
+
+	<table cellspacing='0' cellpadding='0'>
+			<tr class="rowHeader" bgcolor="#2C88D9">
+				<td><%= modelData.message %></td>
+			</tr>
+			<%$.each(modelData.messageReplies,function(i,item){%>
+			<tr class="row">
+				<td><strong>Post by <%= item.createdBy %></strong>: <%= item.message %></td>
+			</tr>
+			<%
+                });
+            %>
+    </table>
+
+	<div id="rightBottomButton"><input type="button" rel="<%= modelData.postId %>" onclick="loadModuleDetails(this,'messageDetails');" value="Reply"/></div>
+	<div id="leftBottomButton"><input type="button" value="Close" onClick="loadModule('centerPanel')"/></div>
+	</div>
+</script>

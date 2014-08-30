@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Java Technical Forum</title>
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="css/menu.css">
+<link rel="stylesheet" type="text/css" href="css/lightbox.css">
+<link rel="stylesheet" type="text/css" href="css/colorbox.css">
+<link rel="stylesheet" type="text/css" href="css/datatable_page.css">
+<link rel="stylesheet" type="text/css" href="css/datatable.css">
+<!--<link rel="stylesheet" type="text/css" href="css/screen.css">-->
+
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" type="image/ico" href="favicon.ico" />
+  <title>jQuery UI Accordion - Default functionality</title>
+  <link rel="stylesheet" href="css/jquery-ui.css" />
+  <script src="js/3rdparty/jquery-1.10.2.min.js"></script>
+  <script src="js/3rdparty/jquery-ui.js"></script>
+  <script src="js/3rdparty/menu.js"></script>
+  <script src="js/3rdparty/spin.js"></script>
+  <script src="js/3rdparty/spin.min.js"></script>
+  <script src="js/3rdparty/knockout-3.0.0rc.js"></script>
+  <!--<script src="js/3rdparty/lightbox-2.6.min.js"></script>
+  <script src="js/3rdparty/modernizr.custom.js"></script>-->
+  
+  <script src="js/3rdparty/jquery.colorbox.js"></script>
+<!--  <script src="js/3rdparty/jquery.colorbox-min.js"></script>-->
+  
+  <script src="js/3rdparty/jquery.dataTables.js"></script>
+  <script src="js/3rdparty/jquery.dataTables.min.js"></script>
+  
+  <script src="js/config/navigationMap.js"></script>
+  <script src="js/component/ModuleLoader.js"></script>
+  <script src="js/page/home.js"></script>
+  <script src="js/config.js"></script>
+  
+<!--  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>-->
+<script type="text/javascript" src="js/3rdparty/underscore-min.js"></script>
+<script type="text/javascript" src="js/3rdparty/script.js"></script>
+<!--<script type="text/javascript" src="js/3rdparty/jquery.livequery.js"></script>-->
+
+<!--<script>
+	$(document).ready(function(){
+		//alert("Test");
+		//$(".inline").colorbox({inline:true, width:"50%"});
+		setTimeout(function(){$(".inline").colorbox({inline:true, width:"50%"});},0)
+	});
+</script>
+  
+  --><script>
+  var lposition = 100;//$("#centerPanel").parent().position().top+100;
+  var tposition = 263;//$("#centerPanel").parent().position().left+100;
+  var opts = {
+  lines: 13, // The number of lines to draw
+  length: 20, // The length of each line
+  width: 6, // The line thickness
+  radius: 9, // The radius of the inner circle
+  corners: 1, // Corner roundness (0..1)
+  rotate: 0, // The rotation offset
+  direction: 1, // 1: clockwise, -1: counterclockwise
+  color: '#FF6600', // #rgb or #rrggbb or array of colors
+  speed: 1, // Rounds per second
+  trail: 60, // Afterglow percentage
+  shadow: false, // Whether to render a shadow
+  hwaccel: false, // Whether to use hardware acceleration
+  className: 'spinner', // The CSS class to assign to the spinner
+  zIndex: 2e9, // The z-index (defaults to 2000000000)
+  top: lposition, // Top position relative to parent in px
+  left: tposition // Left position relative to parent in px
+};
+  $(function() {
+    $( "#tabs" ).tabs();
+  });
+  $(document).on('click','.close_box',function(){
+    $(this).parent().fadeTo(300,0,function(){
+          $(this).remove();
+    });
+});
+  $(function() {
+  	var spinner = new Spinner(opts).spin();
+  	var target = document.getElementById('centerPanel');
+	target.appendChild(spinner.el);
+	setTimeout(function(){$( "#accordion" ).accordion();},0)
+	//alert($("#centerPanel").parent().attr("id"));	
+    //alert($("#centerPanel").position().left);	
+    //alert($("#centerPanel").position().top);	
+    spinner.stop();	
+  });
+  </script>
+<body background="red">
+<div id="headerAndMenu"></div>
+<div id = "leftPanel">
+	<div id="LP1" class="ui-widget-content"></div>
+	<div id="LP2" class="ui-widget-content"></div>
+	<div id="LP3" class="ui-widget-content"></div>
+	<div id="LP4" class="ui-widget-content"></div>
+	<div id="LP5" class="ui-widget-content"></div>
+</div>
+<div id = "rightPanel" >
+	<div id="RP1" class="ui-widget-content"></div>
+	<div id="RP2" class="ui-widget-content"></div>
+	<div id="RP3" class="ui-widget-content"></div>
+</div>
+<div id = "mainCenterPanel"  class="ui-widget-content" >
+	<div id = "centerPanel" class="ui-widget-content"></div>
+	<div id = "takeoverContents" class="ui-widget-content"></div>
+<!--	<div id = "register" class="ui-widget-content"></div>-->
+	<!--<div id = "centerPanelTakeover" class="ui-widget-content">
+		<div class="close_box">Close this box</div>
+		<div class="takeoverContents">
+		<div id="login" class="login">
+
+		<h2><span class="fontawesome-lock"></span>Sign In</h2>
+
+		<form action="javascript:void(0);" method="POST">
+
+			<fieldset>
+
+				<p><label for="email">E-mail address</label></p>
+				<p><input type="email" id="email" value="mail@address.com" onBlur="if(this.value=='')this.value='mail@address.com'" onFocus="if(this.value=='mail@address.com')this.value=''"></p>  JS because of IE support; better: placeholder="mail@address.com" 
+
+				<p><label for="password">Password</label></p>
+				<p><input type="password" id="password" value="password" onBlur="if(this.value=='')this.value='password'" onFocus="if(this.value=='password')this.value=''"></p>  JS because of IE support; better: placeholder="password" 
+
+				<p><input type="submit" value="Sign In"></p>
+
+			</fieldset>
+
+		</form>
+
+	</div>
+		</div>
+</div>	-->
+</div>
+<div id = "disclaimer">
+	<div id="disclaimer1">Copyright &copy; Pankaj Dewangan 2013</div>
+	<div id="disclaimer2"><ul><li>Architect info</li><li>About us</li><li>Contact us</li></ul></div>
+</div>
+</body>
+</html>

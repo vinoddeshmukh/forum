@@ -1,0 +1,227 @@
+<<script type="text/javascript">
+function onTabClick(id){
+	$('#'+id).click();
+}
+</script>
+<script type="text/html" id='headerAndMenu-template'>
+<div id = "header">
+	<div class = "header1">Welcome to the technical forum, where you can find the solution of the problem.<br id="margin10">
+		We will provide the free-lancing @your doorstep<br id="margin10">
+		Will Challenge the Technical problems
+	</div>
+	<div class = "header2">
+	<div id="welcomeSideMsg">Our technical expert only provide the solution, You can contact to our technical consultant.</div>
+	<div id="welcome">
+		<div>Welcome Guest</div>
+		<div><a href="#" onClick='loadModule("login")'>SignIn</a> | <a href="#" onClick='loadModule("register")'>Register</a></div>
+	</div>
+	<div id="search" class="search">
+		<!--<span style="float: left; font-size: 24px; padding-top: 1px; padding-right: 5px; color: #FF6600; font-weight: bolder; text-shadow: 1px 1px 1px rgb(0, 0, 0);">Search:</span>
+		<input id="query" type="text" value="" style="font-size: 20px; margin-top: 5px; border: 1px solid; border-radius: 5px 5px 5px 5px; background: url("http://www.google.com/cse/intl/en/images/google_custom_search_watermark.gif") no-repeat scroll left center rgb(255, 255, 255);" size="18" name="q">
+		<input type="submit" value="Search" name="sa">-->
+
+		<span id="searchLabel">Search:</span>
+		<input id="searchText" name="searchText" type="text" value=""/>
+		<input id="searchButton" type="submit" value="Search" name="searchButton"/>
+	</div>
+	</div>
+</div>
+
+<div id="menu" class="ui-widget-content">
+    <ul class="menu">
+        <li><a href="#" onClick='loadHome()' class="parent"><span>Home</span></a>
+        </li>
+<!--		<li><a href="#"><span>Dashboard</span></a></li>-->
+
+		<li><a href="#" class="parent"><span>Product Architecture</span></a>
+            <div><ul>
+                <li><a href="#" class="parent"><span>Client-Side Architecture</span></a>
+                    <div><ul>
+                        <li><a href="#"><span>Sub Item 1.1</span></a></li>
+                        <li><a href="#"><span>Sub Item 1.2</span></a></li>
+                    </ul></div>
+                </li>
+                <li><a href="#" class="parent"><span>Server-Side Architecture</span></a>
+                    <div><ul>
+                        <li><a href="#"><span>Sub Item 2.1</span></a></li>
+                        <li><a href="#"><span>Sub Item 2.2</span></a></li>
+                    </ul></div>
+                </li>
+                <li><a href="#"><span>UI Components</span></a></li>
+            </ul></div>
+        </li>
+
+		<li><a href="#" class="parent"><span>Forum Category</span></a>
+            <div><ul>
+                <li><a href="#tabs-1" class="parent" onclick="onTabClick('ctab1')"><span>Java</span></a></li>
+				<li><a href="#tabs-2" class="parent" onclick="onTabClick('ctab2')"><span>JEE</span></a></li>
+				<li><a href="#tabs-3" class="parent" onclick="onTabClick('ctab3')"><span>User Interface</span></a></li>
+				<li><a href="#tabs-4" class="parent" onclick="onTabClick('ctab4')"><span>Management</span></a></li>
+				<li><a href="#tabs-5" class="parent" onclick="onTabClick('ctab5')"><span>Project</span></a></li>
+				<li><a href="#tabs-6" class="parent" onclick="onTabClick('ctab6')"><span>Other</span></a></li>
+            </ul></div>
+        </li>
+
+        <li><a href="#" class="parent"><span>Panels</span></a>
+            <div><ul>
+                <li><a href="#" class="parent"><span>Message Panel</span></a></li>
+                <li><a href="#" class="parent"><span>Latest Technical News</span></a></li>
+                <li><a href="#"><span>Message/Reviewed Post</span></a></li>
+                <li><a href="#"><span>Documents and Vedio</span></a></li>
+				<li><a href="#"><span>Consultant/Service/Values</span></a></li>
+                <li><a href="#"><span>Technology & Frameworks</span></a></li>
+                <li><a href="#"><span>Chat with our Consultant</span></a></li>
+                <li><a href="#"><span>Simulator</span></a></li>
+            </ul></div>
+        </li>
+<!--		<li><a href="#"><span>Product Info</span></a></li>-->
+<!--        <li><a href="#"><span>Help</span></a></li>-->
+        <li><a onClick='loadModule("aboutUs")'><span>About Us</span></a></li>
+        <li class="menuspace"></li>
+        <li><a onClick='loadModule("contactUs")'><span>Contacts Us</span></a></li>
+<!--        <li><a onClick='loadModule("login")'><span>login</span></a></li>-->
+        <li class="lastMenu"><a onClick='loadModule("initNewMessage")'><span class="post_new_message">Post New Message</span></a></li>
+		<!--<li class="last"><a class='inline' href="pages/login/login.html"><span class="">Post News</span></a></li>-->
+    </ul>
+</div>
+
+
+
+<div id="slider1_container" style="position: relative; width: 1024px;margin-bottom: 5px;
+        height: 100px;">
+
+        <!-- Loading Screen -->
+        <div u="loading" style="position: absolute; top: 0px; left: 0px;">
+            <div style="filter: alpha(opacity=70); opacity:0.7; position: absolute; display: block;
+                background-color: #000; top: 0px; left: 0px;width: 100%;height:100%;">
+            </div>
+            <div style="position: absolute; display: block; background: url(images/banner/loading.gif) no-repeat center center;
+                top: 0px; left: 0px;width: 100%;height:100%;">
+            </div>
+        </div>
+
+        <!-- Slides Container -->
+        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1024px; height: 100px;
+            overflow: hidden;">
+            <div>
+                <img u=image src="images/banner/01.jpg" />
+                <div u="thumb">Image 1 Details</div>
+                <div u="caption" t="L" style="position: absolute; top: 20px; left: 50px; width: 200px; height: 30px; color: #ffffff; font-size: 20px; line-height: 30px;">Image 1 Header</div>
+            </div>
+            <div>
+                <img u=image src="images/banner/02.jpg" />
+                <div u="thumb">Image 2 Details</div>
+                <div u="caption" t="L" style="position: absolute; top: 20px; left: 50px; width: 200px; height: 30px; color: #ffffff; font-size: 20px; line-height: 30px;">Image 2 Header</div>
+            </div>
+            <div>
+                <img u=image src="images/banner/03.jpg" />
+                <div u="thumb">Image 3 Details</div>
+                <div u="caption" t="L" style="position: absolute; top: 20px; left: 50px; width: 200px; height: 30px; color: #ffffff; font-size: 20px; line-height: 30px;">Image 3 Header</div>
+            </div>
+            <div>
+                <img u=image src="images/banner/04.jpg" />
+                <div u="thumb">Image 4 Details</div>
+                <div u="caption" t="L" style="position: absolute; top: 20px; left: 50px; width: 200px; height: 30px; color: #ffffff; font-size: 20px; line-height: 30px;">Image 4 Header</div>
+            </div>
+            <div>
+                <img u=image src="images/banner/05.jpg" />
+                <div u="thumb">Image 5 Details</div>
+                <div u="caption" t="L" style="position: absolute; top: 20px; left: 50px; width: 200px; height: 30px; color: #ffffff; font-size: 20px; line-height: 30px;">Image 5 Header</div>
+            </div>
+            <div>
+                <img u=image src="images/banner/06.jpg" />
+                <div u="thumb">Image 6 Details</div>
+                <div u="caption" t="L" style="position: absolute; top: 20px; left: 50px; width: 200px; height: 30px; color: #ffffff; font-size: 20px; line-height: 30px;">Image 6 Header</div>
+            </div>
+            <div>
+                <img u=image src="images/banner/07.jpg" />
+                <div u="thumb">Image 7 Details</div>
+                <div u="caption" t="L" style="position: absolute; top: 20px; left: 50px; width: 200px; height: 30px; color: #ffffff; font-size: 20px; line-height: 30px;">Image 7 Header</div>
+            </div>
+            <div>
+                <img u=image src="images/banner/08.jpg" />
+                <div u="thumb">Image 8 Details</div>
+                <div u="caption" t="L" style="position: absolute; top: 20px; left: 50px; width: 200px; height: 30px; color: #ffffff; font-size: 20px; line-height: 30px;">Image 8 Header</div>
+            </div>
+            <!-- <div>
+                <img u=image src="images/banner/02.jpg" />
+                <div u="thumb">Do you know this is text format thumbnail?</div>
+                <div u="caption" t="MCLIP|L" style="position: absolute; top: 105px; left: 100px; width: 400px; height: 30px; color: #ffffff; font-size: 26px; line-height: 30px; text-align: center;">This is 'MCLIP|L' caption transition</div>
+                <div u="caption" t="LISTH|L" style="position: absolute; top: 165px; left: 100px; width: 400px; height: 30px; color: #ffffff; font-size: 26px; line-height: 30px; text-align: center;">This is 'LISTH|L' caption transition</div>
+            </div>
+            <div>
+                <img u=image src="images/banner/03.jpg" />
+                <div u="thumb">Do you notice the navigator is in multiline?</div>
+                <div u="caption" t="WAVE|L" t2="T" style="position: absolute; top: 135px; left: 450px; width: 100px; height: 30px; color: #ffffff; font-size: 26px; line-height: 30px; text-align: center;">WAVE|L</div>
+                <div u="caption" t="WAVE|L" t2="T" d="-1150" style="position: absolute; top: 135px; left: 250px; width: 100px; height: 30px; color: #ffffff; font-size: 26px; line-height: 30px; text-align: center;">WAVE|L</div>
+                <div u="caption" t="WAVE|L" t2="T" d="-1150" style="position: absolute; top: 135px; left: 50px; width: 100px; height: 30px; color: #ffffff; font-size: 26px; line-height: 30px; text-align: center;">WAVE|L</div>
+            </div>
+            <div>
+                <img u=image src="images/banner/04.jpg" />
+                <div u="thumb">Do you like navigator to act by mouse hover?</div>
+                <div u="caption" t="JUMPDN|R" t2="B" style="position: absolute; top: 135px; left: 50px; width: 100px; height: 30px; color: #ffffff; font-size: 26px; line-height: 30px; text-align: center;">JUMPDN|R</div>
+                <div u="caption" t="JUMPDN|R" t2="B" d="-850" style="position: absolute; top: 135px; left: 250px; width: 100px; height: 30px; color: #ffffff; font-size: 26px; line-height: 30px; text-align: center;">JUMPDN|R</div>
+                <div u="caption" t="JUMPDN|R" t2="B" d="-850" style="position: absolute; top: 135px; left: 450px; width: 100px; height: 30px; color: #ffffff; font-size: 26px; line-height: 30px; text-align: center;">JUMPDN|R</div>
+            </div>
+            <div>
+                <img u=image src="images/banner/05.jpg" />
+                <div u="thumb">Do you notice arrows appear when mouse over?</div>
+                <div u="caption" t="DDG|TR" style="position: absolute; top: 135px; left: 100px; width: 150px; height: 30px; color: #ffffff; font-size: 26px; line-height: 30px; text-align: center;">DDG|TR</div>
+                <div u="caption" t="DODGEDANCE|L" style="position: absolute; top: 135px; left: 300px; width: 250px; height: 30px; color: #ffffff; font-size: 26px; line-height: 30px; text-align: center;">DODGEDANCE|L</div>
+            </div>
+            <div>
+                <img u=image src="images/banner/06.jpg" />
+                <div u="thumb">Do you notice the slideshow plays outside?</div>
+                <div u="caption" t="FLUTTER|L" style="position: absolute; top: 135px; left: 100px; width: 150px; height: 30px; color: #ffffff; font-size: 26px; line-height: 30px; text-align: center;">FLUTTER|L</div>
+                <div u="caption" t="TORTUOUS|VB" style="position: absolute; top: 135px; left: 300px; width: 250px; height: 30px; color: #ffffff; font-size: 26px; line-height: 30px; text-align: center;">TORTUOUS|VB</div>
+            </div>
+            <div>
+                <img u=image src="images/banner/07.jpg" />
+                <div u="thumb">Do you know there are <a href="../development/tool-slideshow-transition-viewer.html">360+ slideshow transitions</a>?</div>
+                <div u="caption" t="FADE" style="position: absolute; top: 135px; left: 100px; width: 150px; height: 30px; color: #ffffff; font-size: 26px; line-height: 30px; text-align: center;">FADE</div>
+                <div u="caption" t="ZMF|10" style="position: absolute; top: 135px; left: 300px; width: 250px; height: 30px; color: #ffffff; font-size: 26px; line-height: 30px; text-align: center;">ZMF|10</div>
+            </div>
+            <div>
+                <img u=image src="images/banner/08.jpg" />
+                <div u="thumb">Do you know there are <a href="../development/tool-caption-transition-viewer.html">390+ caption transitions</a>?</div>
+                <div u="caption" t="RTT|10" style="position: absolute; top: 135px; left: 100px; width: 150px; height: 30px; color: #ffffff; font-size: 26px; line-height: 30px; text-align: center;">RTT|10</div>
+                <div u="caption" t="RTTL|BR" style="position: absolute; top: 135px; left: 300px; width: 250px; height: 30px; color: #ffffff; font-size: 26px; line-height: 30px; text-align: center;">RTTL|BR</div>
+            </div>-->
+        </div>
+
+        <!-- ThumbnailNavigator Skin Begin -->
+        <div u="thumbnavigator" class="slider1-T" style="position: absolute; bottom: 0px; left: 0px; height:60px; width:1024px;">
+            <div style="filter: alpha(opacity=40); opacity:0.4; position: absolute; display: block;
+                background-color: #ffffff; top: 0px; left: 0px; width: 100%; height: 100%;">
+            </div>
+            <!-- Thumbnail Item Skin Begin -->
+            <div u="slides">
+                <div u="prototype" style="POSITION: absolute; width: 1024px; HEIGHT: 60px; TOP: 0; LEFT: 0;">
+                    <thumbnailtemplate style="font-family: verdana; font-weight: normal; POSITION: absolute; WIDTH: 100%; HEIGHT: 100%; TOP: 0; LEFT: 0; color:#000; line-height: 60px; font-size:20px; padding-left:10px;"></thumbnailtemplate>
+                </div>
+            </div>
+            <!-- Thumbnail Item Skin End -->
+        </div>
+        <!-- ThumbnailNavigator Skin End -->
+        
+        <!-- Bullet Navigator Skin Begin -->
+        <!-- jssor slider bullet navigator skin 01 -->
+        <!-- bullet navigator container -->
+        <div u="navigator" class="jssorb01" style="position: absolute; bottom: 10px; right: 10px;">
+            <!-- bullet navigator item prototype -->
+            <div u="prototype" style="POSITION: absolute; WIDTH: 8px; HEIGHT: 13px;padding: 2px;font-weight: bold;"></div>
+        </div>
+        <!-- Bullet Navigator Skin End -->
+        
+        <!-- Arrow Navigator Skin Begin -->
+        <!-- Arrow Left -->
+        <span u="arrowleft" class="jssora05l" style="width: 40px; height: 40px; top: 10px; left: 8px;">
+        </span>
+        <!-- Arrow Right -->
+        <span u="arrowright" class="jssora05r" style="width: 40px; height: 40px; top: 10px; right: 8px">
+        </span>
+        <!-- Arrow Navigator Skin End -->
+        <a style="display: none" href="http://www.jssor.com">jQuery Slider</a>
+        <!-- Trigger -->
+    </div>
+</script>

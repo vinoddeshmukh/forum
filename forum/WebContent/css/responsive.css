@@ -1,0 +1,66 @@
+/* Media queries */
+@media screen and (max-width: 1200px) {
+
+}
+ 
+@media screen and (max-width: 980px) {
+
+}
+ 
+@media screen and (max-width: 750px) {
+    #rightPanel{
+    	display: none;
+    }
+    .header1{
+    	display: none;
+    }
+    .header2{
+    	display: none;
+    }
+}
+ 
+@media screen and (max-width: 540px) {
+    #rightPanel{
+    	display: none;
+    }
+    .header1{
+    	display: none;
+    }
+    .header2{
+    	display: none;
+    }
+}
+ 
+@media screen and (max-width: 380px) {
+    #rightPanel{
+    	display: none;
+    }
+    .header1{
+    	display: none;
+    }
+    .header2{
+    	display: none;
+    }
+    .ui-tabs-nav{
+    	display: none;
+    }
+    #centerPanel{
+    	width:100%;
+    }
+    #menu,#disclaimer{
+    	display: none;
+    }
+    #header{
+    	height:20px;
+    	overflow:hidden;
+    }
+    #centerBottomPanel{
+    	width:95%;
+    }
+    #centerBottom1Panel{
+    	display: none;
+    }
+    #centerBottomMostPanel{
+    	width:95%;
+    }
+}

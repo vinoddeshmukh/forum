@@ -1,0 +1,47 @@
+<script>
+$(document).ready(function() {
+    setTimeout(function(){
+    	$('select.styled').customSelect();
+    },200)
+} );
+</script>
+<script type="text/html" id='postNewMessage-template'>
+<div>
+<div id="successPanel" class="successHeader"></div>
+	<form id="postNewMessageForm" action="javascript:postModule('postNewMessage','postNewMessageForm');" method="POST">
+	<div class="titleHeader">
+				Post New Message
+	</div>
+	<ul>
+		<li class="message_row">	
+			<label>Category: </label> 
+			<select class="styled" id="category" name="category">
+  				<option value="Java">Java</option>
+  				<option value="JEE">JEE</option>
+  				<option value="UI">User Interface</option>
+  				<option value="Management">Management</option>
+				<option value="Project">Project</option>
+				<option value="Other">Other</option>
+			</select> 
+		</li>
+		<li class="message_row">	
+			<label>Severity: </label> 
+			<select class="styled">
+  				<option value="volvo">High</option>
+  				<option value="saab">Medium-High</option>
+  				<option value="mercedes">Medium</option>
+  				<option value="audi">low</option>
+			</select> 
+		</li>
+		<li class="message_row">	
+			<label>Message:</label> 
+			<textarea id="message" name="message" rows="4" cols="65" class="textarea-wrapper" placeholder="Enter your message">
+			</textarea> 
+		</li>
+	</ul>
+	<div class="button_hr"/>
+	<div id="rightBottomButton"><input type="submit" value="Post Message"></div>
+	<div id="leftBottomButton"><input type="button" value="Close" onClick="loadModule('centerPanel')"/></div>
+	</form>
+</div>
+</script>

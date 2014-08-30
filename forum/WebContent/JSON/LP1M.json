@@ -1,0 +1,54 @@
+{
+    "header": "Our Technical Consultant",
+    "dataList": [
+        {
+            "sno": 1,
+            "displayName": "Pankaj Dewangan",
+            "cetogery": "JEE",
+            "role": "Architect"
+        },
+        {
+            "sno": 2,
+            "displayName": "Samrat Majumdar",
+            "cetogery": "Java",
+            "role": "Designer"
+        },
+        {
+            "sno": 3,
+            "displayName": "Chintareddy Kotireddy",
+            "cetogery": "Management",
+            "role": "Manager"
+        },
+        {
+            "sno": 4,
+            "displayName": "John Nadar",
+            "cetogery": "Java",
+            "role": "Developer"
+        },
+        {
+            "sno": 5,
+            "displayName": "Suhas",
+            "cetogery": "Java",
+            "role": "Developer"
+        },
+        {
+            "sno": 6,
+            "displayName": "Nitesh Singh",
+            "cetogery": "Java",
+            "role": "Sr. Developer"
+        },
+        {
+            "sno": 7,
+            "displayName": "Vinod Deshmukh",
+            "cetogery": "Java",
+            "role": "Lead"
+        },
+        {
+            "sno": 8,
+            "displayName": "Neeraj",
+            "cetogery": "Java",
+            "role": "Lead"
+        }
+        
+    ]
+}

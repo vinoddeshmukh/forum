@@ -1,0 +1,40 @@
+{
+    "header": "Latest Document Uploaded",
+    "dataList": [
+        {
+            "docId": 1,
+            "docCategory": "Java",
+            "docName": "How to become a certified Architecture.",
+            "docUrl": "Architect",
+            "docAuthor": "Pankaj Dewangan"
+        },
+        {
+            "docId": 1,
+            "docCategory": "Java",
+            "docName": "How to become a certified Architecture.",
+            "docUrl": "Architect",
+            "docAuthor": "Pankaj Dewangan"
+        },
+        {
+            "docId": 1,
+            "docCategory": "Java",
+            "docName": "How to become a certified Architecture.",
+            "docUrl": "Architect",
+            "docAuthor": "Pankaj Dewangan"
+        },
+        {
+            "docId": 1,
+            "docCategory": "Java",
+            "docName": "How to become a certified Architecture.",
+            "docUrl": "Architect",
+            "docAuthor": "Pankaj Dewangan"
+        },
+        {
+            "docId": 1,
+            "docCategory": "Java",
+            "docName": "How to become a certified Architecture.",
+            "docUrl": "Architect",
+            "docAuthor": "Pankaj Dewangan"
+        }
+    ]
+}

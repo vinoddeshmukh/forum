@@ -1,0 +1,47 @@
+<script>
+$(document).ready(function() {
+	//$('.resume').elastic();
+	//var o = $('.resume');
+	//o.style.height = "1px";
+    //o.style.height = (25+o.scrollHeight)+"px";
+    
+} );
+function adjustHeight(el){
+    el.style.height = (el.scrollHeight > el.clientHeight) ? (el.scrollHeight)+"px" : "60px";
+}
+</script>
+
+<script type="text/html" id='consultantDetail-template'>
+	<div class="titleHeader"><%= modelData.firstNm %> <%= modelData.lastNm %></div>
+
+	<ul>
+		<li class="consultant_row">
+			<label>Company: </label> 
+			<span><%= modelData.company %></span>
+		</li>
+		<li class="consultant_row">
+			<label>Contact No.: </label> 
+			<span><%= modelData.contactNo %></span>
+		</li>
+		<li class="consultant_row">
+			<label>E-mail: </label> 
+			<span><%= modelData.email %></span>
+		</li>
+		<li class="consultant_row">
+			<label>Expart Category </label> 
+			<span><%= modelData.prefferedCat %></span>
+		</li>
+		<li class="consultant_row">
+			<label>Designation </label> 
+			<span><%= modelData.designation %></span>
+		</li>
+		<li class="consultant_row">
+			<label>Resume </label> 
+			<textarea readonly class="resume" onmouseover="adjustHeight(this)"><%= modelData.resumeText %></textarea>
+			<p style="display: inline-block; margin-left: 135px;"><strong>Note:</strong> On Mouse Over, you can see the full details.</p>
+		</li>
+	</ul>	
+	<!--<div id="leftBottomButton"><input type="submit" value="Post message to <%= modelData.firstNm %>"></div>-->
+	<div id="rightBottomButton"><input type="button" value="Back to the message List" onClick="loadModule('centerPanel')"/></div>
+	
+</script>

@@ -1,0 +1,300 @@
+<script>
+$(document).ready(function() {
+    setTimeout(function(){
+        prepareList();
+        $( "#tabs" ).tabs();
+        $('#messageTable').dataTable( {
+ 		    "iDisplayLength": 15,
+ 		   "bSort": false,
+ 		   "bFilter": false,"bLengthChange": false
+ 		  } );
+    },0)
+} );
+</script>
+<script type="text/html" id='centerPanelADMIN-template'>
+<!--<a class="inline" href="newsDetails" rel="11" title="Test">news</a>-->
+<div id="tabs">
+	<ul>
+		<li><a id="ctab1" href="#tabs-1">Java</a></li>
+		<li><a id="ctab2" href="#tabs-2">JEE</a></li>
+		<li><a id="ctab3" href="#tabs-3">User Interface</a></li>
+		<li><a id="ctab4" href="#tabs-4">Management</a></li>
+		<li><a id="ctab5" href="#tabs-5">Project</a></li>
+		<li><a id="ctab6" href="#tabs-6">Others</a></li>
+	</ul>
+	<div id="tabs-1">
+		<div id="listContainer">
+			<ul id="expList">
+				<table cellpadding="0" cellspacing="0" border="0" class="display" id="messageTable">
+  					<thead style="display: none;">
+            	  		<tr>
+  							<th>#</th>
+          		    	</tr>
+          			</thead>
+          			<tbody>
+						<a id="collapseList">Collapse All</a>
+						<%$.each(modelData.java,function(i,item){%>
+  						<tr>
+  							<td >
+  							<li>
+								<div class="message_wrapper">
+                      				<img width="20" class="message_user_image" height="20" alt="Smiley face" src="images/user_default_image.png">
+								</div> 
+									<div class="message_wrapper_div">[<%= item.createdBy %>] <%= item.message %></div>
+								
+								<div class="reply_button_wrapper">
+									<!--<a class="link_as_button inline" id="<%= item.postId %>" href="messageDetails" rel="<%= item.postId %>" title="<%= item.message %>">open in new window</a> 
+									<a class="link_as_button inline" id="<%= item.postId %>" href="messageDetails" rel="<%= item.postId %>" title="<%= item.message %>">reply</a>
+									<a class="inline" id="<%= item.postId %>" href="messageDetails" rel="<%= item.postId %>" title="<%= item.message %>">open in new window</a> -->
+									<a class="inline" id="<%= item.postId %>" href="#" onclick="loadModuleDetails(this,'messageDetails');" rel="<%= item.postId %>" title="<%= item.message %>">reply</a>
+									
+									<%
+										if(item.status == 'P'){
+									%>
+										<a class="inline" id="<%= item.postId %>" href="#" onclick="" rel="<%= item.postId %>" title="<%= item.message %>">Approve</a>
+									<%
+										} else {
+									%>
+										<a class="inline" id="<%= item.postId %>" href="#" onclick="" rel="<%= item.postId %>" title="<%= item.message %>">Reject</a>
+									<%
+										}
+									%>									
+								</div>
+
+								<ul>
+									<%
+										if(item.messageReplies.length > 0){
+										$.each(item.messageReplies,function(i,reply){
+									%>
+                          			<li>
+                              			<img width="20" height="20" alt="Smiley face" src="images/user_default_image.png"> by <%= reply.createdBy %> [<%= reply.role %>]
+                              			<ul>
+                                  			<li>
+                                      			<span><%= reply.message %></span>
+                                  			</li>
+                              			</ul>
+                         			</li>
+									<%
+                						});
+									}else{
+            						%>
+										No Reply, you want to reply.
+									<%
+										}
+									%>
+                              </ul>
+                          </li>
+                      </ul>
+                  </li>
+  			</td>
+          </tr>
+			<%
+                });
+            %>
+        </tbody>
+     </table>
+</div>
+</ul>
+	</div>
+
+
+<div id="tabs-2">
+		<div id="listContainer">
+			<ul id="expList">
+				<table cellpadding="0" cellspacing="0" border="0" class="display" id="messageTable">
+  					<thead style="display: none;">
+            	  		<tr>
+  							<th>#</th>
+          		    	</tr>
+          			</thead>
+          			<tbody>
+						<a id="collapseList">Collapse All</a>
+						<%$.each(modelData.jee,function(i,item){%>
+  						<tr>
+  							<td >
+  							<li>
+								<div class="message_wrapper">
+                      				<img width="20" class="message_user_image" height="20" alt="Smiley face" src="images/user_default_image.png">
+								</div> 
+									<div class="message_wrapper_div">[<%= item.createdBy %>] <%= item.message %></div>
+								
+								<div class="reply_button_wrapper">
+									<!--<a class="link_as_button inline" id="<%= item.postId %>" href="messageDetails" rel="<%= item.postId %>" title="<%= item.message %>">open in new window</a> 
+									<a class="link_as_button inline" id="<%= item.postId %>" href="messageDetails" rel="<%= item.postId %>" title="<%= item.message %>">reply</a>
+									<a class="inline" id="<%= item.postId %>" href="messageDetails" rel="<%= item.postId %>" title="<%= item.message %>">open in new window</a> -->
+									<a class="inline" id="<%= item.postId %>" href="messageDetails" rel="<%= item.postId %>" title="<%= item.message %>">reply</a>
+								</div>
+                          </li>
+                      </ul>
+                  </li>
+  			</td>
+          </tr>
+			<%
+                });
+            %>
+        </tbody>
+     </table>
+</div>
+</div>
+
+
+<div id="tabs-3">
+		<div id="listContainer">
+			<ul id="expList">
+				<table cellpadding="0" cellspacing="0" border="0" class="display" id="messageTable">
+  					<thead style="display: none;">
+            	  		<tr>
+  							<th>#</th>
+          		    	</tr>
+          			</thead>
+          			<tbody>
+						<a id="collapseList">Collapse All</a>
+						<%$.each(modelData.ui,function(i,item){%>
+  						<tr>
+  							<td >
+  							<li>
+								<div class="message_wrapper">
+                      				<img width="20" class="message_user_image" height="20" alt="Smiley face" src="images/user_default_image.png">
+								</div> 
+									<div class="message_wrapper_div">[<%= item.createdBy %>] <%= item.message %></div>
+								
+								<div class="reply_button_wrapper">
+									<!--<a class="link_as_button inline" id="<%= item.postId %>" href="messageDetails" rel="<%= item.postId %>" title="<%= item.message %>">open in new window</a> 
+									<a class="link_as_button inline" id="<%= item.postId %>" href="messageDetails" rel="<%= item.postId %>" title="<%= item.message %>">reply</a>
+									<a class="inline" id="<%= item.postId %>" href="messageDetails" rel="<%= item.postId %>" title="<%= item.message %>">open in new window</a> -->
+									<a class="inline" id="<%= item.postId %>" href="messageDetails" rel="<%= item.postId %>" title="<%= item.message %>">reply</a>
+								</div>
+                          </li>
+                      </ul>
+                  </li>
+  			</td>
+          </tr>
+			<%
+                });
+            %>
+        </tbody>
+     </table>
+</div>
+</div>
+
+<div id="tabs-4">
+		<div id="listContainer">
+			<ul id="expList">
+				<table cellpadding="0" cellspacing="0" border="0" class="display" id="messageTable">
+  					<thead style="display: none;">
+            	  		<tr>
+  							<th>#</th>
+          		    	</tr>
+          			</thead>
+          			<tbody>
+						<a id="collapseList">Collapse All</a>
+						<%$.each(modelData.managment,function(i,item){%>
+  						<tr>
+  							<td >
+  							<li>
+								<div class="message_wrapper">
+                      				<img width="20" class="message_user_image" height="20" alt="Smiley face" src="images/user_default_image.png">
+								</div> 
+									<div class="message_wrapper_div">[<%= item.createdBy %>] <%= item.message %></div>
+								
+								<div class="reply_button_wrapper">
+									<!--<a class="link_as_button inline" id="<%= item.postId %>" href="messageDetails" rel="<%= item.postId %>" title="<%= item.message %>">open in new window</a> 
+									<a class="link_as_button inline" id="<%= item.postId %>" href="messageDetails" rel="<%= item.postId %>" title="<%= item.message %>">reply</a>
+									<a class="inline" id="<%= item.postId %>" href="messageDetails" rel="<%= item.postId %>" title="<%= item.message %>">open in new window</a> -->
+									<a class="inline" id="<%= item.postId %>" href="messageDetails" rel="<%= item.postId %>" title="<%= item.message %>">reply</a>
+								</div>
+                          </li>
+                      </ul>
+                  </li>
+  			</td>
+          </tr>
+			<%
+                });
+            %>
+        </tbody>
+     </table>
+</div>
+</div>
+
+
+<div id="tabs-5">
+		<div id="listContainer">
+			<ul id="expList">
+				<table cellpadding="0" cellspacing="0" border="0" class="display" id="messageTable">
+  					<thead style="display: none;">
+            	  		<tr>
+  							<th>#</th>
+          		    	</tr>
+          			</thead>
+          			<tbody>
+						<a id="collapseList">Collapse All</a>
+						<%$.each(modelData.project,function(i,item){%>
+  						<tr>
+  							<td >
+  							<li>
+								<div class="message_wrapper">
+                      				<img width="20" class="message_user_image" height="20" alt="Smiley face" src="images/user_default_image.png">
+								</div> 
+									<div class="message_wrapper_div">[<%= item.createdBy %>] <%= item.message %></div>
+								
+								<div class="reply_button_wrapper">
+									<!--<a class="link_as_button inline" id="<%= item.postId %>" href="messageDetails" rel="<%= item.postId %>" title="<%= item.message %>">open in new window</a> 
+									<a class="link_as_button inline" id="<%= item.postId %>" href="messageDetails" rel="<%= item.postId %>" title="<%= item.message %>">reply</a>
+									<a class="inline" id="<%= item.postId %>" href="messageDetails" rel="<%= item.postId %>" title="<%= item.message %>">open in new window</a> -->
+									<a class="inline" id="<%= item.postId %>" href="messageDetails" rel="<%= item.postId %>" title="<%= item.message %>">reply</a>
+								</div>
+                          </li>
+                      </ul>
+                  </li>
+  			</td>
+          </tr>
+			<%
+                });
+            %>
+        </tbody>
+     </table>
+</div>
+</div>
+
+
+<div id="tabs-6">
+		<div id="listContainer">
+			<ul id="expList">
+				<table cellpadding="0" cellspacing="0" border="0" class="display" id="messageTable">
+  					<thead style="display: none;">
+            	  		<tr>
+  							<th>#</th>
+          		    	</tr>
+          			</thead>
+          			<tbody>
+						<a id="collapseList">Collapse All</a>
+						<%$.each(modelData.other,function(i,item){%>
+  						<tr>
+  							<td >
+  							<li>
+								<div class="message_wrapper">
+                      				<img width="20" class="message_user_image" height="20" alt="Smiley face" src="images/user_default_image.png">
+								</div> 
+									<div class="message_wrapper_div">[<%= item.createdBy %>] <%= item.message %></div>
+								
+								<div class="reply_button_wrapper">
+									<!--<a class="link_as_button inline" id="<%= item.postId %>" href="messageDetails" rel="<%= item.postId %>" title="<%= item.message %>">open in new window</a> 
+									<a class="link_as_button inline" id="<%= item.postId %>" href="messageDetails" rel="<%= item.postId %>" title="<%= item.message %>">reply</a>
+									<a class="inline" id="<%= item.postId %>" href="messageDetails" rel="<%= item.postId %>" title="<%= item.message %>">open in new window</a> -->
+									<a class="inline" id="<%= item.postId %>" href="messageDetails" rel="<%= item.postId %>" title="<%= item.message %>">reply</a>
+								</div>
+                          </li>
+                      </ul>
+                  </li>
+  			</td>
+          </tr>
+			<%
+                });
+            %>
+        </tbody>
+     </table>
+</div>
+</div>
+
+</div>
+</script>

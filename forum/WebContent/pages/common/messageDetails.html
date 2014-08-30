@@ -1,0 +1,29 @@
+<script type="text/html" id='messageDetails-template'>
+	<div class="ui-widget-content">
+	<div id="successPanel" class="successHeader"></div>
+	<form id="messageReplyForm" action="javascript:postModule('postMessageDetails','messageReplyForm');" method="POST">
+	<input type="hidden" name="msgId" id="msgId" value="<%= modelData.postId %>"/>
+
+	<table cellspacing='0' cellpadding='0'>
+			<tr class="rowHeader" bgcolor="#2C88D9">
+				<td><%= modelData.message %></td>
+			</tr>
+			<%$.each(modelData.messageReplies,function(i,item){%>
+			<tr class="row">
+				<td><strong>Post by <%= item.createdBy %></strong>: <%= item.message %></td>
+			</tr>
+			<%
+                });
+            %>
+			<tr class="row">
+				<td>
+					<strong>Please Enter your message</strong><br/><br/>
+					<textarea class="textarea-wrapper" rows="4" cols="80" placeholder="Enter your message" id="message" name="message"></textarea>
+				</td>
+ 			</tr>
+    </table>
+
+	<div id="rightBottomButton"><input type="submit" value="Reply"/></div>
+	<div id="leftBottomButton"><input type="button" value="Close" onClick="loadModule('centerPanel')"/></div>
+	</div>
+</script>

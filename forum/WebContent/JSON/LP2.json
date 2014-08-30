@@ -1,0 +1,57 @@
+{
+    "header": "Our Values",
+    "dataList": [
+        {
+            "valueId": 1,
+            "value": "A block element is an element that takes up the full width available, and has a line break before and after it."
+        },
+        {
+            "valueId": 2,
+            "value": "Block elements can be center-aligned by setting the left and right margins to auto."
+        },
+        {
+            "valueId": 3,
+            "value": "A block element is an element that takes up the full width available, and has a line break before and after it."
+        },
+        {
+            "valueId": 4,
+            "value": "In this chapter we will show you how to horizontally align block elements for layout purposes."
+        },
+        {
+            "valueId": 5,
+            "value": "Note: Using margin:auto; will not work in IE8 and earlier, unless a !DOCTYPE is declared."
+        },
+        {
+            "valueId": 6,
+            "value": "Tip: Center-aligning has no effect if the width is 100%."
+        },
+        {
+            "valueId": 7,
+            "value": "One method of aligning elements is to use absolute positioning:"
+        },
+        {
+            "valueId": 8,
+            "value": "Note: Absolute positioned elements are removed from the normal flow, and can overlap elements."
+        },
+        {
+            "valueId": 9,
+            "value": "When aligning elements like this, it is always a good idea to predefine margin and padding for the <body> element. This is to avoid visual differences in different browsers."
+        },
+        {
+            "valueId": 10,
+            "value": "There is a problem with IE8 and earlier, when using the position property. If a container element (in our case <div class=container>) has a specified width, and the !DOCTYPE declaration is missing, IE8 and earlier versions will add a 17px margin on the right side. This seems to be space reserved for a scrollbar. Always set the !DOCTYPE declaration when using the position property:"
+        },
+        {
+            "valueId": 11,
+            "value": "One method of aligning elements is to use the float property:"
+        },
+        {
+            "valueId": 12,
+            "value": "One method of aligning elements is to use the float property:"
+        },
+        {
+            "valueId": 13,
+            "value": "One method of aligning elements is to use the float property:"
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory name="AvisoHibernateFactory">
+		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+		<property name="hibernate.connection.password">forum</property>
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
+		<property name="hibernate.connection.username">forum</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+		<property name="current_session_context_class">thread</property>
+		<property name="hibernate.id.new_generator_mappings">true</property>
+		<property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property> 
+        <property name="hibernate.connection.SetBigStringTryClob">true</property>
+        <property name="hibernate.jdbc.batch_size">0</property>
+        
+        
+		<mapping class="com.forum.model.NewsBean" />
+		<mapping class="com.forum.model.ConfigBean" />
+		<mapping class="com.forum.model.MessageBean" />
+		<mapping class="com.forum.model.MessageDetailsBean" />
+		<mapping class="com.forum.model.ForumProcessKeyMap" />
+		<mapping class="com.forum.model.DocumentBean" />
+		<mapping class="com.forum.model.ServiceBean" />
+	</session-factory>
+</hibernate-configuration>

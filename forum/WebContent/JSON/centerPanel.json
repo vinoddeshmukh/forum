@@ -1,0 +1,33 @@
+{
+    "header": "Latest Threads",
+    "dataList": [
+        {
+            "postId": 1,
+            "message": "1. Basically, the jQuery .each() function is used to loop through each element of the target jQuery object. Very useful for multi element DOM manipulation, looping arrays and object properties.",
+            "cetogery": "Java",
+            "replies": [
+            	{
+            		"repliedBy": "Pankaj Dewangan",
+            		"role":"Architect",
+            		"message":"1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sagittis ultricies arcu, quis porttitor risus placerat et. Proin quis metus diam, quis bibendum dolor. Nulla nec dapibus nunc. Quisque ac erat sit amet nisl venenatis consequat nec in nibh. Aliquam viverra vestibulum elit faucibus sollicitudin."
+            	},
+            	{
+            		"repliedBy": "Vinod",
+            		"role":"Architect",
+            		"message":"2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sagittis ultricies arcu, quis porttitor risus placerat et. Proin quis metus diam, quis bibendum dolor. Nulla nec dapibus nunc. Quisque ac erat sit amet nisl venenatis consequat nec in nibh. Aliquam viverra vestibulum elit faucibus sollicitudin."
+            	},
+            	{
+            		"repliedBy": "Nitesh",
+            		"role":"Architect",
+            		"message":"3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sagittis ultricies arcu, quis porttitor risus placerat et. Proin quis metus diam, quis bibendum dolor. Nulla nec dapibus nunc. Quisque ac erat sit amet nisl venenatis consequat nec in nibh. Aliquam viverra vestibulum elit faucibus sollicitudin."
+            	}
+			]
+        },
+        {
+            "postId": 2,
+            "message": "2. This is the test for the length.",
+            "cetogery": "Java",
+            "replies": []
+        }
+    ]
+}

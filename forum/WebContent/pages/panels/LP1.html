@@ -1,0 +1,62 @@
+<script>
+	$(document).ready(function(){
+		//alert("Test");
+		//$(".inline").colorbox({inline:true, width:"50%"});
+		setTimeout(function(){$(".inline").colorbox({inline:true, width:"50%"});},0)
+	});
+</script>
+<script type="text/html" id='LP1-template'>
+<div class="contents">
+		<div class="close_box">X</div>
+    	<h3 class="ui-widget-header"><%= modelData.header %></h3>
+		<table cellspacing='0' cellpadding='0'>
+        <thead>
+            <tr>
+				<th width = "10px">#</th>
+                <th width = "60%">Name</th>
+				<th width = "30%">Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%
+                _.each([0,1, 2, 3,4,5,6],function(item){
+				if(this[item] !== undefined){
+            %>
+                <tr>
+                    <!-- use variables -->
+					<td align="center" width = "10px"><%= this[item].sno %></td>
+                    <td width = "10px"><span id="tdspan"><a class='inline' href="LP1D" title="<%= this[item].displayName %> [<%= this[item].cetogery %>]"><%= this[item].displayName %> [<%= this[item].cetogery %>]</a></span></td>
+					<td width = "10px"><%= this[item].role %></td>
+                </tr>
+            <%
+				}
+                },modelData.dataList);
+            %>
+			<%
+                _.each([7],function(item){
+				if(this[item] !== undefined){
+            %>
+				<tr>
+                    <!-- use variables -->
+					<td align="right" colspan="3"><div id="tabMore"><a class='inline' href="LP1M" >more..</a></div></td>
+                </tr>
+ 			<%
+				}
+                },modelData.dataList);
+            %>
+        </tbody>
+    </table>
+
+		<div style='display:none'>
+			<div id='inline_content' style='padding:10px; background:#fff;'>
+			<p><strong>This content comes from a hidden element on this page.</strong></p>
+			<p>The inline option preserves bound JavaScript events and changes, and it puts the content back where it came from when it is closed.</p>
+			<p><a id="click" href="#" style='padding:5px; background:#ccc;'>Click me, it will be preserved!</a></p>
+			
+			<p><strong>If you try to open a new Colorbox while it is already open, it will update itself with the new content.</strong></p>
+			<p>Updating Content Example:<br />
+			<a class="ajax" href="../content/ajax.html">Click here to load new content</a></p>
+			</div>
+		</div>
+</div>
+</script>

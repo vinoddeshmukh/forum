@@ -1,0 +1,32 @@
+<script>
+	$(document).ready(function(){
+		//alert("Test");
+		//$(".inline").colorbox({inline:true, width:"50%"});
+		setTimeout(function(){$(".inline").colorbox({inline:true, width:"50%"});},0)
+	});
+</script>
+<script type="text/html" id='LP1M-template'>
+		<table cellspacing='0' cellpadding='0'>
+        <thead>
+            <tr>
+				<th width = "10px">#</th>
+                <th width = "60%">Name</th>
+				<th width = "30%">Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%
+                _.each(modelData.dataList,function(item){
+            %>
+                <tr>
+                    <!-- use variables -->
+					<td align="center" width = "10px"><%= item.sno %></td>
+                    <td width = "10px"><span id="tdspan"><a class="example-image-link" data-lightbox="example-1" href="LP1D" title="<%= item.displayName %> [<%= item.cetogery %>]"><%= item.displayName %> [<%= item.cetogery %>]</a></span></td>
+					<td width = "10px"><%= item.role %></td>
+                </tr>
+            <%
+                });
+            %>
+        </tbody>
+    </table>
+</script>

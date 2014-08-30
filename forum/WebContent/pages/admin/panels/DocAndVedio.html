@@ -1,0 +1,70 @@
+<script>
+$(document).ready(function() {
+    setTimeout(function(){
+    	$('#SuppressScrollXRecentTab3').perfectScrollbar({suppressScrollX: true});
+    	$('#SuppressScrollXRecentTab4').perfectScrollbar({suppressScrollX: true});
+        $( "#document_tabs" ).tabs({
+        	beforeLoad: function( event, ui ) {
+        		ui.jqXHR.error(function() {
+        		ui.panel.html("Couldn't load this tab. We'll try to fix this as soon as possible. " +
+        						"If this wouldn't be a demo." );
+        		});
+        	}
+        });
+    },200)
+} );
+</script>
+
+<script type="text/html" id='DocAndVedio-template'>
+		<div id="document_tabs">
+	<ul class="tabHeader">
+		<li><a href="#tabs-1">Document</a></li>
+		<li><a href="#tabs-2">Vedio</a></li>
+	</ul>
+	<div id="tabs-1">
+		<div id="recentContainer" class="ui-widget-content RP_TAB">
+			<div id="SuppressScrollXRecentTab3" class="contentHolder">
+				<div class="content">
+					<% _.each([0,1, 2, 3,4,5,6,7,8,9,10,11],function(item){
+						if(this[item] !== undefined){
+            		%>
+						<div class="row">&#10149;  <a href="#"><%= this[item].title  %> [ <%= this[item].description  %> ]</a></div>
+					<%
+               			}},modelData.documentList);
+            		%>
+</div>
+</div>
+				<%_.each([10],function(item){
+					if(this[item] !== undefined){
+            	%>
+					<div id="tabMore"><a href="#" >Click to see the complete list</a></div>
+				<%
+					}},modelData.documentList);
+            	%>
+		</div>
+	</div>
+
+	<div id="tabs-2">
+		<div id="recentContainer" class="ui-widget-content RP_TAB">
+			<div id="SuppressScrollXRecentTab4" class="contentHolder">
+				<div class="content">
+				<% _.each([0,1, 2, 3,4,5,6,7,8,9,10,11],function(item){
+					if(this[item] !== undefined){
+            	%>
+					<div class="row">&#10149;  <a href="#"><%= this[item].title%> [ <%= this[item].description  %> ]</a></div>
+				<%
+               		}},modelData.pdfList);
+            	%>
+</div>
+			</div>
+				<%_.each([12],function(item){
+					if(this[item] !== undefined){
+            	%>
+					<div id="tabMore"><a href="#" >Click to see the complete list</a></div>
+				<%
+					}},modelData.pdfList);
+            	%>
+		</div>
+	</div>
+</div>
+</script>

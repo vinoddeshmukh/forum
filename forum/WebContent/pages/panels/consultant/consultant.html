@@ -1,0 +1,32 @@
+<script>
+	$(document).ready(function(){
+		//alert("Test");
+		//$(".inline").colorbox({inline:true, width:"50%"});
+		setTimeout(function(){$(".inline").colorbox({inline:true, width:"50%"});},0)
+	});
+</script>
+<script type="text/html" id='consultant-template'>
+		<div class="close_box">X</div>
+    	<h3 class="ui-widget-header"><%= modelData.header %></h3>
+<div class="contents">
+		<%
+                _.each([0,1, 2, 3,4,5,6,7,8,9],function(item){
+				if(this[item] !== undefined){
+            %>
+				<div class="row"><img width="20" height="20" alt="Smiley face" src="images/user_default_image.png"> <a class='inline' rel="<%= this[item].userId %>" href="consultantDetail" title="<%= this[item].firstNm %> "><%= this[item].firstNm  %> <%= this[item].lastNm  %> [<%= this[item].prefferedCat %>]</a></div>
+			<%
+               }
+                },modelData.dataList);
+            %>
+</div>
+			<%
+                _.each([10],function(item){
+				if(this[item] !== undefined){
+            %>
+                    <!-- use variables -->
+					<div id="tabMore"><a class='inline' href="newsList" >more..</a></div>
+			<%
+				}
+                },modelData.dataList);
+            %>
+</script>

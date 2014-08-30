@@ -1,0 +1,102 @@
+<script>
+$(document).ready(function() {
+    setTimeout(function(){
+        $( "#tabs" ).tabs({
+        	beforeLoad: function( event, ui ) {
+        		ui.jqXHR.error(function() {
+        		ui.panel.html("Couldn't load this tab. We'll try to fix this as soon as possible. " +
+        						"If this wouldn't be a demo." );
+        		});
+        		ui.jqXHR.success(function(modelData) {
+            		alert("Data came");
+            		try{
+            		$("#centerPanel").html(modelData);
+        			var template = $("#centerPanel-template").html();
+        			$("#centerPanel").html(_.template(template,{modelData:modelData}));
+            		}catch(e){alert(e);}
+        		});
+        	}
+        });
+        $('#messageTable').dataTable( {
+ 		    "iDisplayLength": 10,
+ 		   "bFilter": false,"bLengthChange": false
+ 		  } );
+    },200)
+} );
+</script>
+<script type="text/html" id='centerPanel-template'>
+<!--<a class="inline" href="newsDetails" rel="11" title="Test">news</a>-->
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-1">Java</a></li>
+		<li><a href="dataservice/process/SEARCH_J2EE">JEE</a></li>
+		<li><a href="ajax/content1.html">User Interface</a></li>
+		<li><a href="ajax/content2.html">Management</a></li>
+		<li><a href="ajax/content3-slow.php">Project</a></li>
+		<li><a href="ajax/content4-broken.php">Others</a></li>
+	</ul>
+	<div id="tabs-1">
+		<div id="listContainer">
+			<ul id="expList">
+				<table cellpadding="0" cellspacing="0" border="0" class="display" id="messageTable">
+  					<thead style="display: none;">
+            	  		<tr>
+  							<th>#</th>
+          		    	</tr>
+          			</thead>
+          			<tbody>
+						<a id="collapseList">Collapse All</a>
+						<%$.each(modelData.dataList,function(i,item){%>
+  						<tr>
+  							<td >
+  							<li>
+								<div class="message_wrapper">
+                      				<img width="20" class="message_user_image" height="20" alt="Smiley face" src="images/user_default_image.png">
+								</div> 
+									<div class="message_wrapper_div">[<%= item.createdBy %>] <%= item.message %></div>
+								
+								<div class="reply_button_wrapper">
+									<!--<a class="link_as_button inline" id="<%= item.postId %>" href="messageDetails" rel="<%= item.postId %>" title="<%= item.message %>">open in new window</a> 
+									<a class="link_as_button inline" id="<%= item.postId %>" href="messageDetails" rel="<%= item.postId %>" title="<%= item.message %>">reply</a>-->
+									<a class="inline" id="<%= item.postId %>" href="messageDetails" rel="<%= item.postId %>" title="<%= item.message %>">open in new window</a> 
+									<a class="inline" id="<%= item.postId %>" href="messageDetails" rel="<%= item.postId %>" title="<%= item.message %>">reply</a>
+								</div>
+
+                      			<ul>
+									<%
+										if(item.messageReplies.length > 0){
+										$.each(item.messageReplies,function(i,reply){
+									%>
+                          			<li>
+                              			<img width="20" height="20" alt="Smiley face" src="images/user_default_image.png"> by <%= reply.createdBy %> [<%= reply.role %>]
+                              			<ul>
+                                  			<li>
+                                      			<span><%= reply.message %></span>
+                                  			</li>
+                              			</ul>
+                         			</li>
+									<%
+                						});
+									}else{
+            						%>
+										No Reply, you want to reply.
+									<%
+										}
+									%>
+                              </ul>
+                          </li>
+                      </ul>
+                  </li>
+  			</td>
+          </tr>
+			<%
+                });
+            %>
+        </tbody>
+     </table>
+</div>
+</ul>
+	</div>
+</div>
+
+</script>

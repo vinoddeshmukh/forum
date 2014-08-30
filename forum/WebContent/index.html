@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Java Technical Forum</title>
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="css/menu.css">
+<link rel="stylesheet" type="text/css" href="css/lightbox.css">
+<link rel="stylesheet" type="text/css" href="css/colorbox.css">
+<link rel="stylesheet" type="text/css" href="css/datatable_page.css">
+<link rel="stylesheet" type="text/css" href="css/datatable.css">
+<!--<link rel="stylesheet" type="text/css" href="css/screen.css">-->
+
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" type="image/ico" href="favicon.ico" />
+  <title>jQuery UI Accordion - Default functionality</title>
+  <link rel="stylesheet" href="css/jquery-ui.css" />
+  <script src="js/3rdparty/jquery-1.10.2.min.js"></script>
+  <script src="js/3rdparty/jquery-ui.js"></script>
+  <script src="js/3rdparty/menu.js"></script>
+  <script src="js/3rdparty/spin.js"></script>
+  <script src="js/3rdparty/spin.min.js"></script>
+  <script src="js/3rdparty/knockout-3.0.0rc.js"></script>
+  <!--<script src="js/3rdparty/lightbox-2.6.min.js"></script>
+  <script src="js/3rdparty/modernizr.custom.js"></script>-->
+  
+  <script src="js/3rdparty/jquery.colorbox.js"></script>
+<!--  <script src="js/3rdparty/jquery.colorbox-min.js"></script>-->
+  
+  <script src="js/3rdparty/jquery.dataTables.js"></script>
+  <script src="js/3rdparty/jquery.dataTables.min.js"></script>
+  
+  <script src="js/config/navigationMap.js"></script>
+  <script src="js/component/ModuleLoader.js"></script>
+  <script src="js/page/home.js"></script>
+  
+<!--  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>-->
+<script type="text/javascript" src="js/3rdparty/underscore-min.js"></script>
+<script type="text/javascript" src="js/3rdparty/script.js"></script>
+<!--<script type="text/javascript" src="js/3rdparty/jquery.livequery.js"></script>-->
+
+<!--<script>
+	$(document).ready(function(){
+		//alert("Test");
+		//$(".inline").colorbox({inline:true, width:"50%"});
+		setTimeout(function(){$(".inline").colorbox({inline:true, width:"50%"});},0)
+	});
+</script>
+  
+  --><script>
+  var lposition = 100;//$("#centerPanel").parent().position().top+100;
+  var tposition = 263;//$("#centerPanel").parent().position().left+100;
+  var opts = {
+  lines: 13, // The number of lines to draw
+  length: 20, // The length of each line
+  width: 6, // The line thickness
+  radius: 9, // The radius of the inner circle
+  corners: 1, // Corner roundness (0..1)
+  rotate: 0, // The rotation offset
+  direction: 1, // 1: clockwise, -1: counterclockwise
+  color: '#FF6600', // #rgb or #rrggbb or array of colors
+  speed: 1, // Rounds per second
+  trail: 60, // Afterglow percentage
+  shadow: false, // Whether to render a shadow
+  hwaccel: false, // Whether to use hardware acceleration
+  className: 'spinner', // The CSS class to assign to the spinner
+  zIndex: 2e9, // The z-index (defaults to 2000000000)
+  top: lposition, // Top position relative to parent in px
+  left: tposition // Left position relative to parent in px
+};
+  $(function() {
+    $( "#tabs" ).tabs();
+  });
+  $(document).on('click','.close_box',function(){
+    $(this).parent().fadeTo(300,0,function(){
+          $(this).remove();
+    });
+});
+  $(function() {
+  	var spinner = new Spinner(opts).spin();
+  	var target = document.getElementById('centerPanel');
+	target.appendChild(spinner.el);
+	setTimeout(function(){$( "#accordion" ).accordion();},0)
+	//alert($("#centerPanel").parent().attr("id"));	
+    //alert($("#centerPanel").position().left);	
+    //alert($("#centerPanel").position().top);	
+    spinner.stop();	
+  });
+  </script>
+<body>
+<div id="headerAndMenu"></div>
+<div id = "leftPanel">
+	<div id="LP0" class="ui-widget-content post_new_message">
+			<img width="40" height="40" src="images/new-message-icon.png" alt="Smiley face"/>
+			<a rel="Post New Message" title="Post New Message" href="postNewMessage" class="inline">New Post</a></div>
+	<div id="LP1" class="ui-widget-content LP"></div>
+	<div id="LP2" class="ui-widget-content LP"></div>
+	<div id="LP3" class="ui-widget-content LP"></div>
+	<div id="LP4" class="ui-widget-content LP"></div>
+	<!--<div id="LP5" class="ui-widget-content LP"></div>--></div>
+<div id = "rightPanel" >
+	<div id="RP1" class="ui-widget-content RP"></div>
+	<div id="RP2" class="ui-widget-content RP"></div>
+	<div id="RP3" class="ui-widget-content RP"></div>
+	<div id="RP4" class="ui-widget-content RP"></div>
+	<!--<div id="RP5" class="ui-widget-content RP"></div>--></div>
+<div id = "mainCenterPanel">
+	<div id = "centerPanel" class="ui-widget-content"></div>
+	<div id = "takeoverContents" class="ui-widget-content"></div>
+	<div id = "centerBottomPanel" class="ui-widget-content">
+		<div class="close_box">X</div>
+		<h3 class="ui-widget-header">Latest Technology and Frameworks</h3>
+		<div class="row">&#10149;  <a rel="" title="" href="valueDetails" class="inline cboxElement">Struts 2</a></div>
+		<div class="row">&#10149;  <a rel="" title="" href="valueDetails" class="inline cboxElement">JSF</a></div>
+		<div class="row">&#10149;  <a rel="" title="" href="valueDetails" class="inline cboxElement">Spring MVC</a></div>
+		<div class="row">&#10149;  <a rel="" title="" href="valueDetails" class="inline cboxElement">Wicket</a></div>
+		<div class="row">&#10149;  <a rel="" title="" href="valueDetails" class="inline cboxElement">Stripes</a></div>
+		<div class="row">&#10149;  <a rel="" title="" href="valueDetails" class="inline cboxElement">Tapestry</a></div>
+		<div class="row">&#10149;  <a rel="" title="" href="valueDetails" class="inline cboxElement">RIFE</a></div>
+		<div class="row">&#10149;  <a rel="" title="" href="valueDetails" class="inline cboxElement">Seam</a></div>
+		<div class="row">&#10149;  <a rel="" title="" href="valueDetails" class="inline cboxElement">Google Web Toolkit (GWT)</a></div>
+		<div class="row">&#10149;  <a rel="" title="" href="valueDetails" class="inline cboxElement">OpenXava</a></div>
+	</div>
+	<div id = "centerBottom1Panel">
+		<div id = "centerBottom1Panel" class="centerBottomPanel ui-widget-content">
+			<div class="close_box">X</div>
+			<h3 class="ui-widget-header">Online Chat with our Consultant</h3>
+			<div class="row"><img width="20" height="20" alt="Smiley face" src="images/user_default_image.png"> ;  <a rel="" title="" href="valueDetails" class="inline cboxElement">Chat with Pankaj Dewangan [Java]</a></div>
+			<div class="row"><img width="20" height="20" alt="Smiley face" src="images/user_default_image.png">   <a rel="" title="" href="valueDetails" class="inline cboxElement">Chat with Vinod Desmukh [Java]</a></div>
+			<div class="row"><img width="20" height="20" alt="Smiley face" src="images/user_default_image.png">   <a rel="" title="" href="valueDetails" class="inline cboxElement">Chat with Nitesh Singh [Java]</a></div>
+			<div class="row"><img width="20" height="20" alt="Smiley face" src="images/user_default_image.png">   <a rel="" title="" href="valueDetails" class="inline cboxElement">Chat with John [Java]</a></div>
+		</div>
+		<div id = "centerBottom1Panel" class="centerBottomPanel ui-widget-content">
+			<div class="close_box">X</div>
+			<h3 class="ui-widget-header">Simulator</h3>
+			<div class="row">&#10149;  <a rel="" title="" href="valueDetails" class="inline cboxElement">Mobile Viewport</a></div>
+			<div class="row">&#10149;  <a rel="" title="" href="valueDetails" class="inline cboxElement">Tablet Viewport</a></div>
+			<div class="row">&#10149;  <a rel="" title="" href="valueDetails" class="inline cboxElement">Desktop</a></div>
+		</div>
+	</div>
+	<div id = "centerBottomMostPanel" class="ui-widget-content">
+		<div class="close_box">X</div>
+		<h3 class="ui-widget-header">Our Framework</h3>
+		<div class="row">&#10149;  <a rel="" title="" href="valueDetails" class="inline cboxElement">Client Side Architecture using Backbone</a></div>
+		<div class="row">&#10149;  <a rel="" title="" href="valueDetails" class="inline cboxElement">RESTFul Server-Side Client</a></div>
+		<div class="row">&#10149;  <a rel="" title="" href="valueDetails" class="inline cboxElement">MVC Architecture</a></div>
+		<div class="row">&#10149;  <a rel="" title="" href="valueDetails" class="inline cboxElement">MVC Architecture</a></div>
+		<div class="row">&#10149;  <a rel="" title="" href="valueDetails" class="inline cboxElement">MVC Architecture</a></div>
+		<div class="row">&#10149;  <a rel="" title="" href="valueDetails" class="inline cboxElement">MVC Architecture</a></div>
+	</div>
+</div>
+<div id = "disclaimer">
+	<div id="disclaimer1">Copyright &copy; Pankaj Dewangan 2014</div>
+	<div id="disclaimer2"><ul><li>Architect info</li><li>About us</li><li>Contact us</li></ul></div>
+</div>
+</body>
+</html>

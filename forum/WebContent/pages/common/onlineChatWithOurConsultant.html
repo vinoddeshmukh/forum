@@ -1,0 +1,18 @@
+<script>
+$(document).ready(function() {
+    setTimeout(function(){
+    	$('#OCWOCSuppressScrollX').perfectScrollbar({suppressScrollX: true});
+    },200)
+} );
+</script>  
+<script type="text/html" id='OCWOC-template'>
+		<div class="close_box">X</div>
+		<h3 class="ui-widget-header"><%= modelData.header %></h3>
+		<div id="OCWOCSuppressScrollX" class="contentHolder180">
+			<div class="content">
+				<%$.each(modelData.dataList,function(i,item){%>
+					<div class="row"><img width="20" height="20" alt="Smiley face" src="images/user_default_image.png">   <a rel="" title="" href="valueDetails" class="inline cboxElement">Chat with <%= item.title %> <%= item.firstNm %> <%= item.lastNm %> [<%= item.prefferedCat %>]</a></div>
+				<%});%>
+			</div>
+		</div>
+</script>

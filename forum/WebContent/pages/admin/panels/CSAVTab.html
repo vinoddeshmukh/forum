@@ -1,0 +1,72 @@
+<script>
+$(document).ready(function() {
+    setTimeout(function(){
+    	$('#SuppressScrollXRecentTab5').perfectScrollbar({suppressScrollX: true});
+    	$('#OurServiceSuppressScrollX').perfectScrollbar({suppressScrollX: true});
+    	$('#OurValuesSuppressScrollX').perfectScrollbar({suppressScrollX: true});
+        $( "#company_tabs" ).tabs({
+        	beforeLoad: function( event, ui ) {
+        		ui.jqXHR.error(function() {
+        		ui.panel.html("Couldn't load this tab. We'll try to fix this as soon as possible. " +
+        						"If this wouldn't be a demo." );
+        		});
+        	}
+        });
+    },200)
+} );
+</script>
+
+<script type="text/html" id='CSAVTabADMIN-template'>
+		<div id="company_tabs">
+	<ul class="tabHeader">
+		<li><a href="#tabs-1">Consultant</a></li>
+		<li><a href="#tabs-2">Our Services</a></li>
+		<li><a href="#tabs-3">Our values</a></li>
+	</ul>
+	<div id="tabs-1">
+		<div id="recentContainer" class="ui-widget-content RP_TAB">
+			<div id="SuppressScrollXRecentTab5" class="contentHolder">
+				<div class="content">
+		<%
+                _.each([0,1, 2, 3,4,5,6,7,8],function(item){
+				if(this[item] !== undefined){
+            %>
+				<div class="row"><img width="20" height="20" alt="Smiley face" src="images/user_default_image.png"> <a rel="<%= this[item].userId %>" onclick="loadModuleDetails(this,'consultantDetail');" title="<%= this[item].firstNm %> "><%= this[item].firstNm  %> <%= this[item].lastNm  %> [<%= this[item].prefferedCat %>]</a></div>
+			<%
+               }
+                },modelData.dataList);
+            %>
+</div>
+</div>
+			<%
+                _.each([9],function(item){
+				if(this[item] !== undefined){
+            %>
+                    <!-- use variables -->
+					<div id="tabMore"><a class='inline' href="newsList" >Click to see the complete list</a></div>
+			<%
+				}
+                },modelData.dataList);
+            %>
+		</div>
+	</div>
+	<div id="tabs-2">
+		<div id="OurServiceSuppressScrollX" class="contentHolder200">
+			<div class="content">
+				<%$.each(modelData.ourServiceList,function(i,item){%>
+					<div class="row" id="OurServicediv<%=i%>">&#10149;  <a rel="" title="<%= item.title %>" id="OurServiceanchor<%=i%>" onclick="loadServiceDetails(this,'OurServicespan'+<%=i%>)"><strong><%= item.title %></a> : </strong><span id="OurServicespan<%=i%>"><%= item.description %></span></div>
+				<%});%>
+			</div>
+		</div>
+	</div>
+	<div id="tabs-3">
+		<div id="OurValuesSuppressScrollX" class="contentHolder200">
+			<div class="content">
+				<%$.each(modelData.ourValuesList,function(i,item){%>
+					<div class="row" id="OurValuesdiv<%=i%>">&#10149;  <a rel="" title="<%= item.title %>" id="OurValuesanchor<%=i%>" onclick="loadServiceDetails(this,'OurValuesspan'+<%=i%>)"><strong><%= item.title %></a> : </strong><span id="OurValuesspan<%=i%>"><%= item.description %></span></div>
+				<%});%>
+			</div>
+		</div>
+	</div>
+</div>
+</script>

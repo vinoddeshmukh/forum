@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="css/menu.css">
+
+  <meta charset="utf-8" />
+  <title>jQuery UI Accordion - Default functionality</title>
+  <link rel="stylesheet" href="css/jquery-ui.css" />
+  <script src="js/3rdparty/jquery-1.9.1.js"></script>
+  <script src="js/3rdparty/jquery-ui.js"></script>
+  <script src="js/3rdparty/menu.js"></script>
+  <script src="js/3rdparty/spin.js"></script>
+  <script src="js/3rdparty/spin.min.js"></script>
+  <script src="js/config/navigationMap.js"></script>
+  <script src="js/component/ModuleLoader.js"></script>
+  <script src="js/page/home.js"></script>
+  <script>
+  var lposition = 100;//$("#centerPanel").parent().position().top+100;
+  var tposition = 263;//$("#centerPanel").parent().position().left+100;
+  var opts = {
+  lines: 13, // The number of lines to draw
+  length: 20, // The length of each line
+  width: 6, // The line thickness
+  radius: 9, // The radius of the inner circle
+  corners: 1, // Corner roundness (0..1)
+  rotate: 0, // The rotation offset
+  direction: 1, // 1: clockwise, -1: counterclockwise
+  color: '#FF6600', // #rgb or #rrggbb or array of colors
+  speed: 1, // Rounds per second
+  trail: 60, // Afterglow percentage
+  shadow: false, // Whether to render a shadow
+  hwaccel: false, // Whether to use hardware acceleration
+  className: 'spinner', // The CSS class to assign to the spinner
+  zIndex: 2e9, // The z-index (defaults to 2000000000)
+  top: lposition, // Top position relative to parent in px
+  left: tposition // Left position relative to parent in px
+};
+    $(function() {
+    $( "#tabs" ).tabs();
+  });
+  $(document).on('click','.close_box',function(){
+    $(this).parent().fadeTo(300,0,function(){
+          $(this).remove();
+    });
+});
+  $(function() {
+  	var spinner = new Spinner(opts).spin();
+  	var target = document.getElementById('centerPanel');
+	target.appendChild(spinner.el);
+	setTimeout(function(){$( "#accordion" ).accordion();},0)
+	//alert($("#centerPanel").parent().attr("id"));	
+    //alert($("#centerPanel").position().left);	
+    //alert($("#centerPanel").position().top);	
+    //spinner.stop();	
+  });
+  </script>
+<body background="red">
+<div id="headerAndMenu"></div>
+<!--<div id = "header">
+	<div id = "header1"><h2><p>Welcome to the technical forum, where you can find the solution of the problem.</p></h2></div>
+	<div id = "header2"><h2><p>Our technical expert only provide the solution, You can contact to our technical consultant.</p></h2>
+	<div id="search" class="search">
+		<span style="float: left; font-size: 24px; padding-top: 5px; padding-right: 5px; color: #FF6600; font-weight: bolder; text-shadow: 1px 1px 1px rgb(0, 0, 0);">Search:</span>
+		<input id="query" type="text" value="" style="font-size: 20px; margin-top: 5px; border: 1px solid; border-radius: 5px 5px 5px 5px; background: url("http://www.google.com/cse/intl/en/images/google_custom_search_watermark.gif") no-repeat scroll left center rgb(255, 255, 255);" size="18" name="q">
+		<input type="submit" style="color: white; background: #303030; font-weight: bolder; border: 1px solid black; margin: 0px 0px 0px 5px; padding: 5px; -moz-border-radius: 5px 5px 5px 5px; border-radius: 5px 5px 5px 5px; position: relative; top: -3px;" value="Search" name="sa">
+	</div>
+	</div>
+</div>
+<!-- <div id = "menu" style="border-color: blue; border-width: 1px; background-color: olive; height: 20px">Here the Menu comes</div> -->
+
+
+
+
+
+
+<!-- <div id="tabs">
+  <ul>
+    <li><a href="#tabs-1">Home</a></li>
+    <li><a href="#tabs-2">Dashboard</a></li>
+    <li><a href="#tabs-3">Technology</a></li>
+  </ul>
+  <div id="tabs-1">
+    <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
+  </div>
+  <div id="tabs-2">
+    <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+  </div>
+  <div id="tabs-3">
+    <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
+    <p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+  </div>
+</div> -->
+<div id = "leftPanel">
+	<div id="LP1"></div>
+	<div id="LP2"></div>
+	<div id="LP3"></div>
+</div>
+<div id = "rightPanel" >
+	<div id="RP1"></div>
+	<div id="RP2"></div>
+	<div id="RP3"></div>
+</div>
+<div id = "centerPanel" class="ui-widget-content">
+<div id="accordion">
+  <h3>Section : Java and JEE</h3>
+  <div>
+    <p>
+    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+    </p>
+  </div>
+  <h3>Section : UI</h3>
+  <div>
+    <p>
+    Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+    purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
+    velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
+    suscipit faucibus urna.
+    </p>
+  </div>
+  <h3>Section : Management</h3>
+  <div>
+    <p>
+    Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
+    Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
+    ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
+    lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
+    </p>
+    <ul>
+      <li>List item one</li>
+      <li>List item two</li>
+      <li>List item three</li>
+    </ul>
+  </div>
+  <h3>Section : Project</h3>
+  <div>
+    <p>
+    Cras dictum. Pellentesque habitant morbi tristique senectus et netus
+    et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
+    faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
+    mauris vel est.
+    </p>
+    <p>
+    Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
+    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
+    inceptos himenaeos.
+    </p>
+  </div>
+</div>
+
+</div>
+<div id = "disclaimer">
+	<div id="disclaimer1">Copyright &copy; Pankaj Dewangan 2013</div>
+	<div id="disclaimer2"><ul><li>About us</li><li>Contact us</li></ul></div>
+</div>
+</body>
+</html>

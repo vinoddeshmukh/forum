@@ -1,0 +1,60 @@
+<script>
+$(document).ready(function() {
+    setTimeout(function(){
+    	$('#SuppressScrollXRecentTab1').perfectScrollbar({suppressScrollX: true});
+    	$('#SuppressScrollXRecentTab2').perfectScrollbar({suppressScrollX: true});
+        $( "#recent_tabs" ).tabs({
+        	beforeLoad: function( event, ui ) {
+        		ui.jqXHR.error(function() {
+        		ui.panel.html("Couldn't load this tab. We'll try to fix this as soon as possible. " +
+        						"If this wouldn't be a demo." );
+        		});
+        	}
+        });
+    },200)
+} );
+</script>
+
+<script type="text/html" id='RecentAndLatestADMIN-template'>
+<div id="recent_tabs">
+	<ul class="tabHeader">
+		<li><a href="#tabs-1"><%= modelData.header %> (Top 10)</a></li>
+		<li><a href="#tabs-2">Most Reviewed Post (Top 10)</a></li>
+	</ul>
+	<div id="tabs-1">
+		<div id="recentContainer" class="ui-widget-content RP_TAB">
+			<div id="SuppressScrollXRecentTab1" class="contentHolder">
+				<div class="content">
+					<%
+               			$.each(modelData.recent,function(i,item){
+            		%>
+						<div class="row">&#10149;  <a onclick="loadModuleDetails(this,'messageDetailsView');" rel="<%= item.postId %>" title="<%= item.message %>"><%= item.message %></a></div>
+					<%
+               			});
+            		%>
+				</div>
+			</div>
+			<!--<div id="tabMore"><a class='inline' href="newsList" >Click to see the complete list</a></div>-->
+			<div id="tabMore">-</div>
+		</div>
+	</div>
+
+	<div id="tabs-2">
+		<div id="recentContainer" class="ui-widget-content RP_TAB">
+			<div id="SuppressScrollXRecentTab2" class="contentHolder">
+				<div class="content">
+						<%
+               				$.each(modelData.mostViewed,function(i,item){
+            			%>
+						<div class="row">&#10149;  <a onclick="loadModuleDetails(this,'messageDetailsView');" rel="<%= item.postId %>" title="<%= item.message %>"><%= item.message %></a></div>
+						<%
+               				});
+            			%>
+				</div>
+			</div>
+				<!--<div id="tabMore"><a class='inline' href="newsList" >Click to see the complete list</a></div>-->
+			<div id="tabMore">-</div>
+		</div>
+	</div>
+</div>
+</script>

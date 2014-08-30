@@ -1,0 +1,41 @@
+<script type="text/html" id='news-template'>
+		<div class="close_box">X</div>
+    	<h3 class="ui-widget-header"><%= modelData.header %></h3>
+		<table cellspacing='0' width='100%' cellpadding='0' >
+        <thead>
+            <tr>
+				<th width = "10px">#</th>
+                <th width = "60%">Title</th>
+				<th width = "30%">Dated</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%
+                _.each([0,1, 2, 3,4,5,6],function(item){
+				if(this[item] !== undefined){
+            %>
+                <tr>
+                    <!-- use variables -->
+					<td align="center" width = "10px"><%= this[item].frmId %></td>
+                    <td width = "10px"><span id="tdspan"><a class='inline' href="newsDetails" title="<%= this[item].newsTitle %>" rel="<%= this[item].frmId %>"><%= this[item].newsTitle %></a></span></td>
+					<td width = "10px"><%= this[item].newsDtStr %></td>
+                </tr>
+            <%
+               }
+                },modelData.dataList);
+            %>
+			<%
+                _.each([7],function(item){
+				if(this[item] !== undefined){
+            %>
+				<tr>
+                    <!-- use variables -->
+					<td align="right" colspan="3"><div id="tabMore"><a class='inline' href="newsList" >more..</a></div></td>
+                </tr>
+			<%
+				}
+                },modelData.dataList);
+            %>
+        </tbody>
+    </table>
+</script>
